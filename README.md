@@ -14,6 +14,9 @@ interpretation.
 2. **Entity Extraction**
 3. **Relationship Classification/Extraction**
 4. **Browser Extension and Backend**
+    - Browser extension will allow for the user to select text from a website to turn into a concept map.
+    - The browser extension will then send that information to the backend python script.
+    - The python script will send back the desired data.
 5. **Frontend and Visualizations**
 
 <table>
