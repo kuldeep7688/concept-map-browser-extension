@@ -59,8 +59,8 @@ interpretation.
         <small><b>Michael Plante</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;"/>
+        <a href="https://github.com/arael34">
+        <img src="https://avatars.githubusercontent.com/u/94145174?v=4" width="100px;"/>
         </a><br/>
         <small><b>Jonas Groening</b></small>
       </td>
