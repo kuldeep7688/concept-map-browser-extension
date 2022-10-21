@@ -10,6 +10,17 @@
         "48": "images/icon48.png",
         "128": "images/icon24.png"
     },
+    
+    "background": {
+      "service_worker": "background.js"
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["http://*/*"],
+        "js": ["content_script.js"]
+      }
+    ],
 
     "action": {
       "default_icon": {              
@@ -19,8 +30,8 @@
       },
       "default_popup": "popup.html"
     },
+
+    "permissions": ["contextMenus", "tabs"]
     
-    "background": {
-      "service_worker": "background.js"
-    }
+   
 }
