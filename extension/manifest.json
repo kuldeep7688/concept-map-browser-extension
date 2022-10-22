@@ -6,9 +6,9 @@
     "version": "1.0",
     "permissions": ["activeTab", "scripting"],
 
-    
+
     "background": {
-        "scripts": "javascript/background.js"
+        "service_worker": "javascript/background.js"
     },
   
     
