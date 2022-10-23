@@ -14,6 +14,13 @@ chrome.contextMenus.onClicked.addListener(function(info) {
   if (info.menuItemId == "Concept-Map" && info.selectionText){
   // the if statement makes sure there is text selected before allowing for the text to be clicked
     console.log(info.selectionText)
-    // prints selected text
+    const text = JSON.stringify(info.selectionText)
+    console.log("here")
+    $.ajax({
+      url:"/test",
+      type:"POST",
+      contentType: "application/json",
+      data: JSON.stringify(text)
+    })
   }
 })
