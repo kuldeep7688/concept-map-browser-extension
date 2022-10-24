@@ -13,8 +13,16 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.contextMenus.onClicked.addListener(function(info) {
 // runs the code bellow when the context menu item is clicked
   if (info.menuItemId == "Concept-Map" && info.selectionText) {
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    request({
+        url: url,
+        method: 'GET',
+        json: JSON.parse(info.selectionText)
+      }, function(err, resp, body){
+        if(err){
+            console.log('Could not create map.');
+            console.log(err);
+        }
+      }
+    );
   }
 });
