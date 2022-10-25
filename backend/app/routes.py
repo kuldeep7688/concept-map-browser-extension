@@ -1,5 +1,7 @@
-import app
+from flask import Blueprint
 
-@app.route("/", methods=["GET"])
+routes = Blueprint("routes", __name__)
+
+@routes.route("/")
 def index():
     return "<h1>It works .</h1>"
