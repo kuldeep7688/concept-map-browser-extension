@@ -7,8 +7,7 @@ extension/package-lock.json
 *.csv
 *.txt
 *.ipynb
-.Python
-build/
+*.props
 develop-eggs/
 dist/
 downloads/
