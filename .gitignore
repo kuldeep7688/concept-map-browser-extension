@@ -1,0 +1,4 @@
+backend/app/__pycache__
+
+extension/node_modules
+extension/package-lock.json
