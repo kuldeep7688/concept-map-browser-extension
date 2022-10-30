@@ -21,12 +21,4 @@ chrome.contextMenus.onClicked.addListener(function(info) {
     }
   })
 
-// eel.expose(hello_world_js);
-// function hello_world_js(x){
-//   console.log("Hello From " + x)
-// }
-
-// hello_world_js("JavaScript Land")
-// eel.hello_world("JavaScript Land")
-
 console.log("================ Background.js ended ==================")
