@@ -8,6 +8,7 @@ extension/package-lock.json
 *.txt
 *.ipynb
 *.props
+__pycache__
 develop-eggs/
 dist/
 downloads/
