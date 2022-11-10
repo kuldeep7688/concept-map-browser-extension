@@ -2,7 +2,8 @@ from doctest import OutputChecker
 import json
 from flask import Flask, request, jsonify, render_template
 
-from backend.NER.NER_function import extract_relationship, create_model
+from backend.relationship_extraction.relation_ext_code import extract_relationship, create_model
+
 
 model = create_model()
 
@@ -27,7 +28,15 @@ def testfn():
 @app.post('/text')
 def put_get():
 
+    print(request.data)
+    
+    print("Getting the relation...")
 
+    relation = extract_relationship(json.loads(request.data), model)
+
+    print("Displaying relation....")
+
+    print(relation)
 
     return 'Success', 200
 
