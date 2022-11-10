@@ -9,6 +9,14 @@ def extract_relationship(text_json, model):
     relation = model_output[0]
     return relation
 
+"""
+Creates a opennre model for use.
+
+Be default, we create a 'wiki80_cnn_softmax' type model.
+"""
+def create_model(model='wiki80_cnn_softmax'):
+    return opennre.get_model(model)
+
 
 if __name__ == "__main__":
     model = opennre.get_model('wiki80_cnn_softmax')
