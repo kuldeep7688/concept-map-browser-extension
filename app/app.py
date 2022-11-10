@@ -2,6 +2,9 @@ from doctest import OutputChecker
 import json
 from flask import Flask, request, jsonify, render_template
 
+from backend.NER.NER_function import extract_relationship, create_model
+
+model = create_model()
 
 app = Flask(__name__)
 
@@ -20,6 +23,13 @@ def testfn():
     if request.method == 'POST':
         print(request.get_json())  # parse as JSON
         return 'Sucesss', 200
+
+@app.post('/text')
+def put_get():
+
+
+
+    return 'Success', 200
 
 #Run the app:
 if __name__ == "__main__":
