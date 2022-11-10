@@ -2,9 +2,9 @@ import spacy
 import itertools
 import opennre
 from transformers import pipeline
-from text_summarization.text_summarizer import text_summarizer_inference
-from NER.extract_entities import get_entities
-from relationship_extraction.relation_ext_code import extract_relationship
+from backend.text_summarization.text_summarizer import text_summarizer_inference
+from backend.NER.extract_entities import get_entities
+from backend.relationship_extraction.relation_ext_code import extract_relationship
 from pprint import pprint
 
 
@@ -20,16 +20,44 @@ def get_loaded_model_dict():
         'relation_model': None
     }
     # sentence splittin_model
-    loaded_model_dict['sentence_model'] = spacy.load('en_core_web_sm')
+    try:
+        loaded_model_dict['sentence_model'] = spacy.load('en_core_web_sm')
+        print('\n')
+        print('Sentence model loaded ')
+        print('\n')
+    except Exception as e:
+        print(e)
+        print('Sentence model not loaded properly')
     
     # summarizer model
-    loaded_model_dict['summarizer'] = pipeline("summarization")
+    try:
+        loaded_model_dict['summarizer'] = pipeline("summarization")
+        print('\n')
+        print('Summarizer model loaded successfully')
+        print('\n')
+    except Exception as e:
+        print(e)
+        print('Summarizer model not loaded successfully')
 
     # ner model 
-    loaded_model_dict['ner_model'] = spacy.load('en_core_web_sm')
+    try:
+        loaded_model_dict['ner_model'] = spacy.load('en_core_web_sm')
+        print('\n')
+        print('NER model loaded successfully')
+        print('\n')
+    except Exception as e:
+        print(e)
+        print('NER model not loaded successfully')
 
     # relationship model
-    loaded_model_dict['relation_model'] = opennre.get_model('wiki80_cnn_softmax') 
+    try:
+        loaded_model_dict['relation_model'] = opennre.get_model('wiki80_cnn_softmax') 
+        print('\n')
+        print('Relationship Model was loaded successfully')
+        print('\n')
+    except Exception as e:
+        print(e)
+        print('Relationship Model was not loaded successfully')
 
     return loaded_model_dict
 

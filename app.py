@@ -1,9 +1,14 @@
 from doctest import OutputChecker
 import json
 from flask import Flask, request, jsonify, render_template
+from backend import ml_pipeline
 
 
 app = Flask(__name__)
+
+
+# global variable to load models just once
+MODEL_DICT = ml_pipeline.get_loaded_model_dict()
 
 @app.route('/')
 def home_page():
@@ -20,6 +25,17 @@ def testfn():
     if request.method == 'POST':
         print(request.get_json())  # parse as JSON
         return 'Sucesss', 200
+
+@app.route('/conceptmap', methods=['POST'])
+def get_triples_from_ml_backend():
+    input_text_dict = request.get_json(force=True)
+    triples = ml_pipeline.get_triples(input_text_dict['text'], MODEL_DICT)
+    print('\n\n\n')
+    print('##########################################################')
+    print(len(triples))
+    print('##########################################################')
+    print('\n\n\n')
+    return jsonify(triples)
 
 #Run the app:
 if __name__ == "__main__":
