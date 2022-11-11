@@ -1,10 +1,14 @@
+wheel
+setuptools_rust
 flask
 gunicorn
 spacy
 transformers
 torch
-transformers==3.4.0
+transformers
 pytest==5.3.2
-scikit-learn==0.22.1
+numpy
+scikit-learn
 scipy
 nltk
+six
