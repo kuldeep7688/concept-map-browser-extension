@@ -1,13 +1,14 @@
 from doctest import OutputChecker
 import json
 from flask import Flask, request, jsonify, render_template
+from backend import ml_pipeline
 
-from backend.relationship_extraction.relation_ext_code import extract_relationship, create_model
-
-
-model = create_model()
 
 app = Flask(__name__)
+
+
+# global variable to load models just once
+MODEL_DICT = ml_pipeline.get_loaded_model_dict()
 
 @app.route('/')
 def home_page():
@@ -25,20 +26,16 @@ def testfn():
         print(request.get_json())  # parse as JSON
         return 'Sucesss', 200
 
-@app.post('/text')
-def put_get():
-
-    print(request.data)
-    
-    print("Getting the relation...")
-
-    relation = extract_relationship(json.loads(request.data), model)
-
-    print("Displaying relation....")
-
-    print(relation)
-
-    return 'Success', 200
+@app.route('/conceptmap', methods=['POST'])
+def get_triples_from_ml_backend():
+    input_text_dict = request.get_json(force=True)
+    triples = ml_pipeline.get_triples(input_text_dict['text'], MODEL_DICT)
+    print('\n\n\n')
+    print('##########################################################')
+    print(len(triples))
+    print('##########################################################')
+    print('\n\n\n')
+    return jsonify(triples)
 
 #Run the app:
 if __name__ == "__main__":
