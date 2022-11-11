@@ -7,6 +7,7 @@ extension/package-lock.json
 *.csv
 *.ipynb
 *.props
+__pycache__
 develop-eggs/
 dist/
 downloads/
