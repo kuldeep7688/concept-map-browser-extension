@@ -6,12 +6,9 @@ const form = document.querySelector(".form-data")
 const generateMap = async text => {
     if (text === "") { return }
     try {
-        const response = await axios.get(`${api}`, { params: { bro: text } })
+        const response = await axios.get(`${api}`, { params: { text: text } })
         document.getElementById('conceptMap').src += '';
-        console.log("succeeded")
-        } catch (error) {
-        console.log("failed")
-        }
+    } catch (error) {}
 };
 
 const handleSubmit = async e => {

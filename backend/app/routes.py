@@ -6,10 +6,9 @@ routes = Blueprint("routes", __name__)
 
 @routes.route("/")
 def index():
-    lol = random.randint(1, 10)
-    text = request.args.get('bro')
+    text = request.args.get('text')
     if text != None:
         session['i'] = text
     if 'i' in session:
         text = session['i']
-    return render_template('sample_network.html', value=text, test=lol)
+    return render_template('sample_network.html', value=text)
