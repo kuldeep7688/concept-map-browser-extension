@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 routes = Blueprint("routes", __name__)
 
 @routes.route("/")
 def index():
-    return "<h1>It works .</h1>"
+    return render_template('sample_network.html')
