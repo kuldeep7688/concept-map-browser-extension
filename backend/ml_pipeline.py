@@ -1,6 +1,6 @@
 import spacy
 import itertools
-import opennre
+import backend.relationship_extraction.opennre
 from transformers import pipeline
 from backend.text_summarization.text_summarizer import text_summarizer_inference
 from backend.NER.extract_entities import get_entities

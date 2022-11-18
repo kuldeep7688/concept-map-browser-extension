@@ -1,0 +1,33 @@
+{
+    
+    "manifest_version": 3,
+    "name": "Concept-map",
+    "version": "1.0",
+    "description": "An extension to develop a concept-map for the core topics on the active tab",
+    "icons": {
+        "16": "extension/images/icon16.png",
+        "32": "extension/images/icon32.png",
+        "48": "extension/images/icon48.png",
+        "128": "extension/images/icon24.png"
+    },
+    
+    
+    "background": {
+      "service_worker": "extension/background.js"
+    },
+
+    
+
+    "action": {
+      "default_icon": {              
+      "16": "extension/images/icon16.png",   
+      "24": "extension/images/icon24.png",   
+      "32": "extension/images/icon32.png"    
+      },
+      "default_popup": "extension/popup.html"
+    },
+
+    "permissions": ["contextMenus", "tabs"]
+    
+   
+}

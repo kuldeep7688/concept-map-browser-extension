@@ -5,7 +5,6 @@ extension/package-lock.json
 
 
 *.csv
-*.txt
 *.ipynb
 *.props
 __pycache__
@@ -20,6 +19,7 @@ parts/
 sdist/
 var/
 wheels/
+venv/
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -27,3 +27,43 @@ share/python-wheels/
 *.egg
 *.ipynb_checkpoints/
 **/*.ipynb_checkpoints/
+
+# Gitignore File
+
+# IntelliJ project files:
+
+.idea
+*.iml
+out
+gen
+
+# VSCode files:
+
+.vscode/
+
+# Python Environments:
+
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Files:
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build files:
+
+build/
+dist/
+cursepy.egg-info/
+
+# Sphinx buid files
+
+docs/build/
+docs/source/_*
