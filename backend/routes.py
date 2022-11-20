@@ -6,17 +6,15 @@ routes = Blueprint("routes", __name__)
 # global variable to load models just once
 # MODEL_DICT = ml_pipeline.get_loaded_model_dict()
 
-@routes.route('/', methods=['GET', 'POST'])
-def home_page():
-    if request.method=='POST':
-        print('ok we good')
-    print('get')
-    #text = request.args.get('text')
-    #if text != None:
-    #    session['i'] = text
-    #if 'i' in session:
-    #    text = session['i']
-    return render_template('index.html')
+@routes.route('/<id>')
+def home_page(id):
+    text = request.args.get('text')
+    if text != None:
+        session[id] = text
+    if id in session:
+        text = session[id]
+    # parse text and call ml_pipeline.get_triples() here. 
+    return render_template('index.html', id=id)
 
 @routes.route('/test', methods=['GET', 'POST'])
 def testfn():
@@ -39,7 +37,3 @@ def testfn():
 #     print('##########################################################')
 #     print('\n\n\n')
 #     return jsonify(triples)
-
-@routes.route('/conceptmap', methods=['POST'])
-def get_triples_from_ml_backend():
-    return 'Success', 200

@@ -25,9 +25,11 @@ const generateMap = async text => {
 chrome.contextMenus.onClicked.addListener(function(info) {
 
   // runs the code bellow when the context menu item is clicked
-    if (info.menuItemId == "Concept-Map" && info.selectionText) {
-        generateMap(info.selectionText);
-        chrome.tabs.create({ url: api });
+    let text = info.selectionText
+    if (info.menuItemId == "Concept-Map" && text) {
+        // generateMap(info.selectionText);
+        let id = Math.random().toString(36).slice(2)
+        chrome.tabs.create({ url: `${api + id}?text=${text}` });
     }
   })
 
