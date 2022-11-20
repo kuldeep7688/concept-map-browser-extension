@@ -9,7 +9,6 @@ extension/package-lock.json
 *.props
 __pycache__
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
