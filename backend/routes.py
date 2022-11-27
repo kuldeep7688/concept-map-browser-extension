@@ -1,10 +1,15 @@
 from flask import Blueprint, request, render_template, session, jsonify
-# from backend.ml_pipeline import ml_pipeline
+from backend.ml_rebel_pipeline import get_loaded_model_dict, get_triples
+from backend.ml_rebel_pipeline import save_network_html
+
+MODEL_DICT = get_loaded_model_dict()
+print('\n\n\n')
+print('Models loaded successfully...')
+print('\n\n\n')
+
 
 routes = Blueprint("routes", __name__)
 
-# global variable to load models just once
-# MODEL_DICT = ml_pipeline.get_loaded_model_dict()
 
 @routes.route('/<id>')
 def home_page(id):
@@ -13,8 +18,18 @@ def home_page(id):
         session[id] = text
     if id in session:
         text = session[id]
-    # parse text and call ml_pipeline.get_triples() here. 
+
+    # parse text and call ml_pipeline.get_triples() here.
+    print('\n\n\n') 
+    print('The text is mentioned below : ')
+    print(text)
+    kb = get_triples(text, MODEL_DICT)
+    filename = "sample_network.html"
+    save_network_html(kb, filename=filename)
+    print('\n\n\n')
     return render_template('index.html', id=id)
+    # return render_template(filename)
+
 
 @routes.route('/test', methods=['GET', 'POST'])
 def testfn():
