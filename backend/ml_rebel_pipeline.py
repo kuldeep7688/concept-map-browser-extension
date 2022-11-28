@@ -63,15 +63,15 @@ def save_network_html(kb, filename="network.html"):
     )
     net.set_edge_smooth('dynamic')
     # net.show(filename)
+    net.save_graph(filename)
     return
+
 
 def get_triples(text, model_dict):
     kb = from_text_to_kb(
         model_dict['rebel_model'], model_dict['rebel_tokenizer'],
         text, span_length=64, verbose=True
     )
-    # filename = "sample_network.html"
-    # save_network_html(kb, filename=filename)
     return kb
 
 
