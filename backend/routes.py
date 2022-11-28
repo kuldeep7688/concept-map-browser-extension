@@ -1,7 +1,12 @@
 from flask import Blueprint, request, render_template, session, jsonify
 from flask import redirect, url_for
-from backend.ml_rebel_pipeline import get_loaded_model_dict, get_triples
-from backend.ml_rebel_pipeline import save_network_html
+try:
+    from backend.ml_rebel_pipeline import get_loaded_model_dict, get_triples
+    from backend.ml_rebel_pipeline import save_network_html
+except:
+    from ml_rebel_pipeline import get_loaded_model_dict, get_triples
+    from ml_rebel_pipeline import save_network_html
+
 from flask import g
 
 

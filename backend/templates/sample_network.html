@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 700px;
-                 height: 700px;
+                 width: 1800px;
+                 height: 900px;
                  background-color: #eeeeee;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([]);
-                  edges = new vis.DataSet([]);
+                  nodes = new vis.DataSet([{"color": "#03a1fc", "id": "Inner Temple", "label": "Inner Temple", "shape": "circle"}, {"color": "#03a1fc", "id": "London", "label": "London", "shape": "circle"}, {"color": "#03a1fc", "id": "Gujarat", "label": "Gujarat", "shape": "circle"}, {"color": "#03a1fc", "id": "India", "label": "India", "shape": "circle"}, {"color": "#03a1fc", "id": "Mahatma Gandhi", "label": "Mahatma Gandhi", "shape": "circle"}, {"color": "#03a1fc", "id": "Nonviolent resistance", "label": "Nonviolent resistance", "shape": "circle"}, {"color": "#03a1fc", "id": "South Africa", "label": "South Africa", "shape": "circle"}, {"color": "#03a1fc", "id": "Civil and political rights", "label": "Civil and political rights", "shape": "circle"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Inner Temple", "label": "headquarters location", "title": "headquarters location", "to": "London"}, {"arrows": "to", "from": "Inner Temple", "label": "located in the administrative territorial entity", "title": "located in the administrative territorial entity", "to": "London"}, {"arrows": "to", "from": "Gujarat", "label": "country", "title": "country", "to": "India"}, {"arrows": "to", "from": "India", "label": "contains administrative territorial entity", "title": "contains administrative territorial entity", "to": "Gujarat"}, {"arrows": "to", "from": "Mahatma Gandhi", "label": "movement", "title": "movement", "to": "Nonviolent resistance"}, {"arrows": "to", "from": "Mahatma Gandhi", "label": "field of work", "title": "field of work", "to": "Nonviolent resistance"}, {"arrows": "to", "from": "Mahatma Gandhi", "label": "residence", "title": "residence", "to": "South Africa"}, {"arrows": "to", "from": "Mahatma Gandhi", "label": "country of citizenship", "title": "country of citizenship", "to": "South Africa"}, {"arrows": "to", "from": "Nonviolent resistance", "label": "subclass of", "title": "subclass of", "to": "Civil and political rights"}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
