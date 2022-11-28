@@ -2,7 +2,10 @@ import spacy
 from pprint import pprint
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from pyvis.network import Network
-from backend.rebel.rebel_inference import from_text_to_kb
+try:
+    from backend.rebel.rebel_inference import from_text_to_kb
+except: 
+    from rebel.rebel_inference import from_text_to_kb
 
 
 def get_loaded_model_dict():
@@ -41,10 +44,10 @@ def get_loaded_model_dict():
 
 def save_network_html(kb, filename="network.html"):
     # create network
-    net = Network(directed=True, width="700px", height="700px", bgcolor="#eeeeee")
+    net = Network(directed=True, width="1800px", height="900px", bgcolor="#eeeeee")
 
     # nodes
-    color_entity = "#00FF00"
+    color_entity = "#03a1fc"
     for e in kb.entities:
         net.add_node(e, shape="circle", color=color_entity)
 
